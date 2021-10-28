@@ -1,0 +1,60 @@
+<div class="container card mt-5">
+  <div class="container mt-5">
+    <h2>Add employee</h2>
+  </div>
+  <form #employeeForm="ngForm" (ngSubmit)="getEmployeeData(employeeForm.value)">
+    <div class="container row mt-3 mb-3">
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="First name"
+          name="firstName"
+          ngModel
+        />
+      </div>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Middle name"
+          name="middleName"
+          ngModel
+        />
+      </div>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Last name"
+          name="lastName"
+          ngModel
+        />
+      </div>
+      <div class="col">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Position"
+          name="position"
+          ngModel
+        />
+      </div>
+      <div class="col">
+        <input
+          class="form-control"
+          type="date"
+          name="date"
+          name="birthDate"
+          ngModel
+        />
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-end mb-3">
+      <button class="btn btn-success" type="submit">Create employee</button>
+    </div>
+  </form>
+  <div class="alert text-center" *ngIf="display" [class.bg-warning]="display">
+    {{ message }}
+  </div>
+</div>

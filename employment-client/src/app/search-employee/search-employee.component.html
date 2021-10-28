@@ -1,0 +1,29 @@
+<div class="container mt-5 mb-5">
+  <h2>Find an employee</h2>
+  <br />
+  <div class="input-group">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="First name"
+      (input)="onChangeFirstName($event)"
+      value="{{ employeeFirstName }}"
+    />
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Last name"
+      (input)="onChangeLastName($event)"
+      value="{{ employeeLastName }}"
+    />
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Position"
+      (input)="onChangePosition($event)"
+      value="{{ employeePosition }}"
+    />
+    <a class="btn btn-warning" (click)="onClickClear()">Clear</a>
+    <button class="btn btn-primary" (click)="onClickSubmit()">Search</button>
+  </div>
+</div>

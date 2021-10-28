@@ -1,0 +1,33 @@
+<div class="container card mt-5">
+  <app-search-employee
+    (newResponseEvent)="recieveResponse()"
+  ></app-search-employee>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Full name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Birth date</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <th scope="row">{{ employee.id }}</th>
+          <th>
+            {{ employee.firstName }} {{ employee.middleName }}
+            {{ employee.lastName }}
+          </th>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.birthDate }}</td>
+          <td><a routerLink="employee/{{ employee.id }}">View</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="employeesNotExists" class="text-center m-3">
+      <h4>No employees found</h4>
+    </div>
+  </div>
+</div>
