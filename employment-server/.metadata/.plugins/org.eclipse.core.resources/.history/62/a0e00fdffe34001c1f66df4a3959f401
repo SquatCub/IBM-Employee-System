@@ -1,0 +1,54 @@
+package com.ibm.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ibm.entity.Compesation;
+import com.ibm.entity.Employee;
+import com.ibm.repository.EmploymentRepository;
+
+@Service
+public class EmploymentService {
+
+	@Autowired
+	EmploymentRepository employeeRepository;
+
+	public Employee createEmployee(Employee employee) {
+		return employeeRepository.save(employee);
+	}
+
+	public Employee updateEmployee(Employee employee) {
+		return employeeRepository.save(employee);
+	}
+
+	public Employee getEmployeeById(String id) {
+		return employeeRepository.findById(id).get();
+	}
+
+	public List<Employee> getAllEmployees() {
+		return employeeRepository.findAll();
+	}
+	
+	
+	public List<Employee> getEmployeesByFields(Employee employee) {
+		if(employee.getFirstName() != "" && employee.getLastName() != "" && employee.getPosition() != "") {
+			return employeeRepository.findByFirstNameAndLastNameAndPosition(employee.getFirstName(), employee.getLastName(), employee.getPosition());
+		}
+		if(employee.getFirstName() != "") {
+			return employeeRepository.findByFirstName(employee.getFirstName());
+		}else if(employee.getLastName() != "") {
+			return employeeRepository.findByLastName(employee.getLastName());
+		}else if(employee.getPosition() != "") {
+			return employeeRepository.findByPosition(employee.getPosition());
+		} else return employeeRepository.findByFirstName(employee.getFirstName());
+		
+	}
+	
+
+	public List<Employee> getByAllFields(Employee employee) {
+		return employeeRepository.findByFirstNameAndMiddleNameAndLastNameAndBirthDate(employee.getFirstName(), employee.getMiddleName(), employee.getLastName(), employee.getBirthDate());
+	}
+
+}

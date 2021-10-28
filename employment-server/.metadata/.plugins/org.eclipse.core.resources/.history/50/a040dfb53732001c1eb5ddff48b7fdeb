@@ -1,0 +1,19 @@
+package com.ibm.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ibm.entity.Employee;
+import com.ibm.repository.EmploymentRepository;
+
+@Service
+public class EmploymentService {
+	
+	@Autowired
+	EmploymentRepository employeeRepository;
+	
+	public Employee createEmployee(Employee employee) {
+		return employeeRepository.save(employee)
+	}
+
+}

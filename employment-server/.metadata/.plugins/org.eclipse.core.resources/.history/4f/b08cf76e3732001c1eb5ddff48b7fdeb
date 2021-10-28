@@ -1,0 +1,5 @@
+package com.ibm.repository;
+
+public interface EmploymentRepository {
+
+}
