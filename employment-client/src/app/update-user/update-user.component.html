@@ -1,0 +1,80 @@
+<form
+  #employeeForm="ngForm"
+  (ngSubmit)="updateEmployeeData(employeeForm.value)"
+>
+  <div class="container mt-3 mb-3">
+    <div class="row">
+      <div class="col-4">
+        <span><b>ID</b></span>
+        <input
+          class="form-control"
+          disabled
+          type="text"
+          value="{{ employeeData.id }}"
+        />
+        <input type="hidden" name="id" ngModel="{{ employeeData.id }}" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-2">
+        <span><b>Name</b></span>
+        <input
+          class="form-control"
+          type="text"
+          name="firstName"
+          ngModel="{{ employeeData.firstName }}"
+        />
+      </div>
+      <div class="col-2">
+        <span><b>Middle name</b></span>
+        <input
+          class="form-control"
+          type="text"
+          name="middleName"
+          ngModel="{{ employeeData.middleName }}"
+        />
+      </div>
+      <div class="col-2">
+        <span><b>Last name</b></span>
+        <input
+          class="form-control"
+          type="text"
+          name="lastName"
+          ngModel="{{ employeeData.lastName }}"
+        />
+      </div>
+      <div class="col-2">
+        <span><b>Position</b></span>
+        <input
+          class="form-control"
+          type="text"
+          name="position"
+          ngModel="{{ employeeData.position }}"
+        />
+      </div>
+      <div class="col-2">
+        <span><b>Birth Date</b></span>
+        <input
+          class="form-control"
+          type="date"
+          name="birthDate"
+          ngModel="{{ employeeData.birthDate }}"
+        />
+      </div>
+      <input
+        type="hidden"
+        name="compesationList"
+        ngModel="{{ employeeData.compesationList }}"
+      />
+      <div class="col-2">
+        <br />
+        <button type="submit" class="btn btn-success">Update data</button>
+      </div>
+    </div>
+    <br />
+    <div class="alert text-center" *ngIf="display" [class.bg-warning]="display">
+      {{ message }}
+    </div>
+  </div>
+</form>

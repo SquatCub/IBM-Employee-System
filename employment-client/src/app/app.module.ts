@@ -11,6 +11,7 @@ import { SearchEmployeeComponent } from './search-employee/search-employee.compo
 import { ViewUserComponent } from './view-user/view-user.component';
 import { FormsModule } from '@angular/forms';
 import { CompesationsComponent } from './compesations/compesations.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CompesationsComponent } from './compesations/compesations.component';
     SearchEmployeeComponent,
     ViewUserComponent,
     CompesationsComponent,
+    UpdateUserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
