@@ -54,6 +54,7 @@ public class EmploymentService {
 
 		List<Compesation> compesations = employee.getCompesationList();
 		boolean exists = false;
+		if (compesations.size() > 0) {
 		for (Compesation c : compesations) {
 			if (c.getType().equals("Salary")) {
 				for (Compesation b : compesations) {
@@ -74,6 +75,11 @@ public class EmploymentService {
 			map.put("message", "compesation already exists");
 			map.put("code", 400);
 		} else {
+			employeeRepository.save(employee);
+			map.put("message", "employee updated");
+			map.put("code", 200);
+		}
+	} 	else {
 			employeeRepository.save(employee);
 			map.put("message", "employee updated");
 			map.put("code", 200);

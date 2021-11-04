@@ -17,7 +17,7 @@ export class AddEmployeeComponent implements OnInit {
     if (data.lastName == '') this.message += 'Last name ';
     if (data.position == '') this.message += 'Position ';
     if (data.birthDate == '') this.message += 'Birth date ';
-    data.compesation = [];
+    data.compesationList = [];
     if (this.checkDate(data.birthDate)) {
       flag = true;
       this.message += ' ';
