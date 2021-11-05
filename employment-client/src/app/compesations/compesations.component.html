@@ -1,9 +1,31 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <h3>Compesations</h3>
-    <a type="button" class="btn btn-primary" (click)="showNewCompesation()">
-      New compesation
-    </a>
+    <div class="d-flex justify-content-between">
+      <a
+        type="button"
+        class="btn btn-danger text-white me-2"
+        (click)="showSearchRange()"
+        >Search by range</a
+      >
+      <a
+        type="button"
+        class="btn btn-info text-white me-2"
+        (click)="showSearchMonth()"
+        >Search by month</a
+      >
+      <a type="button" class="btn btn-primary" (click)="showNewCompesation()">
+        New compesation
+      </a>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="displayMonth">
+    <app-search-month></app-search-month>
+  </div>
+
+  <div class="container" *ngIf="displayRange">
+    <app-search-range></app-search-range>
   </div>
 
   <div class="container" *ngIf="displayCompesation">
@@ -30,7 +52,7 @@
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
-            <option value="4">Aril</option>
+            <option value="4">April</option>
             <option value="5">May</option>
             <option value="6">June</option>
             <option value="7">July</option>

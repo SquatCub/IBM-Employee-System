@@ -22,6 +22,9 @@ export class CompesationsComponent implements OnInit {
   displayCompesation: boolean = false;
   messageCompesation: boolean = false;
   displayCompesationEdit: boolean = false;
+  displayMonth: boolean = false;
+  displayRange: boolean = false;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
@@ -116,6 +119,20 @@ export class CompesationsComponent implements OnInit {
   showNewCompesation() {
     if (this.displayCompesation) this.displayCompesation = false;
     else this.displayCompesation = true;
+    this.displayMonth = false;
+    this.displayRange = false;
+  }
+  showSearchMonth() {
+    if (this.displayMonth) this.displayMonth = false;
+    else this.displayMonth = true;
+    this.displayRange = false;
+    this.displayCompesation = false;
+  }
+  showSearchRange() {
+    if (this.displayRange) this.displayRange = false;
+    else this.displayRange = true;
+    this.displayMonth = false;
+    this.displayCompesation = false;
   }
 
   saveUserCompesation(data: Employee) {

@@ -12,6 +12,9 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { FormsModule } from '@angular/forms';
 import { CompesationsComponent } from './compesations/compesations.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { SearchMonthComponent } from './search-month/search-month.component';
+import { SearchRangeComponent } from './search-range/search-range.component';
+import { MonthlyCompesationComponent } from './monthly-compesation/monthly-compesation.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     ViewUserComponent,
     CompesationsComponent,
     UpdateUserComponent,
+    SearchMonthComponent,
+    SearchRangeComponent,
+    MonthlyCompesationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

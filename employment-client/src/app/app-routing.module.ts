@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { HomeComponent } from './home/home.component';
+import { MonthlyCompesationComponent } from './monthly-compesation/monthly-compesation.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'search-employees',
     component: HomeComponent,
+  },
+  {
+    path: 'monthly-compesation',
+    component: MonthlyCompesationComponent,
   },
 ];
 
