@@ -10,6 +10,7 @@ import Employee from '../Classes/Employee';
 })
 export class MonthlyCompesationComponent implements OnInit {
   compesations: Compesation[] = [];
+  compesationTotal: number = 0;
   employeeID = this.route.snapshot.queryParams['id'];
   compesationYear = this.route.snapshot.queryParams['year'];
   compesationMonth = this.route.snapshot.queryParams['month'];
@@ -56,5 +57,8 @@ export class MonthlyCompesationComponent implements OnInit {
       'December',
     ];
     return months[index - 1];
+  }
+  sumCompesation(val: number) {
+    this.compesationTotal += val;
   }
 }

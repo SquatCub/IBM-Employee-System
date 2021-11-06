@@ -121,6 +121,7 @@ export class CompesationsComponent implements OnInit {
     else this.displayCompesation = true;
     this.displayMonth = false;
     this.displayRange = false;
+    this.displayCompesationEdit = false;
   }
   showSearchMonth() {
     this.employeeID = this.employeeData.id;
@@ -128,6 +129,7 @@ export class CompesationsComponent implements OnInit {
     else this.displayMonth = true;
     this.displayRange = false;
     this.displayCompesation = false;
+    this.displayCompesationEdit = false;
   }
   showSearchRange() {
     this.employeeID = this.employeeData.id;
@@ -135,6 +137,7 @@ export class CompesationsComponent implements OnInit {
     else this.displayRange = true;
     this.displayMonth = false;
     this.displayCompesation = false;
+    this.displayCompesationEdit = false;
   }
 
   saveUserCompesation(data: Employee) {

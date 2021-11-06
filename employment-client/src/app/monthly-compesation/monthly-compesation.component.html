@@ -1,10 +1,19 @@
 <div class="container">
   <div class="container card mt-5">
     <div class="p-3" *ngIf="compesationExists">
-      <h3>
-        Compesations found in {{ setMonth(compesationMonth) }}
-        {{ compesationYear }}
-      </h3>
+      <div class="d-flex justify-content-between">
+        <h3>
+          Compesations found in {{ setMonth(compesationMonth) }}
+          {{ compesationYear }}
+        </h3>
+        <div>
+          <a
+            class="btn btn-sm btn-primary"
+            routerLink="/employee/{{ employeeID }}"
+            >Home</a
+          >
+        </div>
+      </div>
 
       <table class="table">
         <thead class="bg-dark text-light">
@@ -23,12 +32,23 @@
             <td>{{ compesation.year }}</td>
             <td>{{ compesation.description }}</td>
             <td>$ {{ compesation.amount }}</td>
+            {{
+              sumCompesation(compesation.amount!)
+            }}
           </tr>
         </tbody>
       </table>
+      <div class="container d-flex justify-content-end mt-5">
+        <h5 class="me-5">Total amount: ${{ compesationTotal }}</h5>
+      </div>
     </div>
     <div class="p-3" *ngIf="!compesationExists">
-      <h3>No compesations found :(</h3>
+      <div class="d-flex justify-content-between">
+        <h3>No compesations found :(</h3>
+        <div>
+          <a class="btn btn-sm btn-primary" routerLink=".">Home</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
