@@ -20,4 +20,6 @@ public interface EmploymentRepository extends MongoRepository<Employee, String> 
 	public List<Employee> findByFirstNameAndLastNameAndPosition(String firstName, String lastName, String position);
 	
 	public List<Employee> findByFirstNameAndMiddleNameAndLastNameAndBirthDate(String firstName, String middleName, String lastName, String birthDate);
+
+	public Employee findByIdAndCompesationListMonthAndCompesationListYear(String id, int month, int year);
 }

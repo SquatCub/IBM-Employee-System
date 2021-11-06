@@ -1,5 +1,6 @@
 package com.ibm.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -55,31 +56,31 @@ public class EmploymentService {
 		List<Compesation> compesations = employee.getCompesationList();
 		boolean exists = false;
 		if (compesations.size() > 0) {
-		for (Compesation c : compesations) {
-			if (c.getType().equals("Salary")) {
-				for (Compesation b : compesations) {
-					if (b.getType().equals("Salary")) {
-						if (!b.equals(c)) {
-							if (b.getMonth() == c.getMonth() && b.getYear() == c.getYear()) {
-								exists = true;
-								break;
+			for (Compesation c : compesations) {
+				if (c.getType().equals("Salary")) {
+					for (Compesation b : compesations) {
+						if (b.getType().equals("Salary")) {
+							if (!b.equals(c)) {
+								if (b.getMonth() == c.getMonth() && b.getYear() == c.getYear()) {
+									exists = true;
+									break;
+								}
 							}
+							if (exists)
+								break;
 						}
-						if (exists)
-							break;
 					}
 				}
 			}
-		}
-		if (exists) {
-			map.put("message", "compesation already exists");
-			map.put("code", 400);
+			if (exists) {
+				map.put("message", "compesation already exists");
+				map.put("code", 400);
+			} else {
+				employeeRepository.save(employee);
+				map.put("message", "employee updated");
+				map.put("code", 200);
+			}
 		} else {
-			employeeRepository.save(employee);
-			map.put("message", "employee updated");
-			map.put("code", 200);
-		}
-	} 	else {
 			employeeRepository.save(employee);
 			map.put("message", "employee updated");
 			map.put("code", 200);
@@ -119,6 +120,22 @@ public class EmploymentService {
 	public List<Employee> getByAllFields(Employee employee) {
 		return employeeRepository.findByFirstNameAndMiddleNameAndLastNameAndBirthDate(employee.getFirstName(),
 				employee.getMiddleName(), employee.getLastName(), employee.getBirthDate());
+	}
+
+	public List<Compesation> getCompesationByMonthAndYear(String id, int month, int year) {
+		Employee emp = employeeRepository.findByIdAndCompesationListMonthAndCompesationListYear(id, month, year);
+		List<Compesation> compesations = new ArrayList<Compesation>();
+		if (emp != null) {
+			if (emp.getCompesationList().size() > 0) {
+				for (Compesation c : emp.getCompesationList()) {
+					if (c.getMonth() == month && c.getYear() == year) {
+						compesations.add(c);
+					}
+				}
+			}
+		}
+
+		return compesations;
 	}
 
 }

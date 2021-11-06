@@ -67,5 +67,10 @@ public class EmploymentController {
 		}
 		return "No hay";
 	}
+	
+	@GetMapping("/compesation-by-date")
+	public List<Compesation> getCompesationByDate(@RequestParam String id, @RequestParam int month, @RequestParam int year) {
+		return employeeService.getCompesationByMonthAndYear(id, month, year);
+	}
 
 }

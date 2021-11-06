@@ -123,12 +123,14 @@ export class CompesationsComponent implements OnInit {
     this.displayRange = false;
   }
   showSearchMonth() {
+    this.employeeID = this.employeeData.id;
     if (this.displayMonth) this.displayMonth = false;
     else this.displayMonth = true;
     this.displayRange = false;
     this.displayCompesation = false;
   }
   showSearchRange() {
+    this.employeeID = this.employeeData.id;
     if (this.displayRange) this.displayRange = false;
     else this.displayRange = true;
     this.displayMonth = false;
