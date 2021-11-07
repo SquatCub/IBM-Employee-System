@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { HomeComponent } from './home/home.component';
 import { MonthlyCompesationComponent } from './monthly-compesation/monthly-compesation.component';
+import { RangeCompesationsComponent } from './range-compesations/range-compesations.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'monthly-compesation',
     component: MonthlyCompesationComponent,
+  },
+  {
+    path: 'range-compesation',
+    component: RangeCompesationsComponent,
   },
 ];
 

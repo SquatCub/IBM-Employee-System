@@ -12,9 +12,7 @@ export class SearchMonthComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.id);
-  }
+  ngOnInit(): void {}
 
   changeMonth(month: any) {
     this.month = month.target.value;

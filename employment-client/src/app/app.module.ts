@@ -15,6 +15,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { SearchMonthComponent } from './search-month/search-month.component';
 import { SearchRangeComponent } from './search-range/search-range.component';
 import { MonthlyCompesationComponent } from './monthly-compesation/monthly-compesation.component';
+import { CompesationsTableComponent } from './compesations-table/compesations-table.component';
+import { RangeCompesationsComponent } from './range-compesations/range-compesations.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MonthlyCompesationComponent } from './monthly-compesation/monthly-compe
     SearchMonthComponent,
     SearchRangeComponent,
     MonthlyCompesationComponent,
+    CompesationsTableComponent,
+    RangeCompesationsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

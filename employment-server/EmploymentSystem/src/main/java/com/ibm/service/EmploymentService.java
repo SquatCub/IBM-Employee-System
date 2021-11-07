@@ -1,6 +1,7 @@
 package com.ibm.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -131,6 +132,32 @@ public class EmploymentService {
 					if (c.getMonth() == month && c.getYear() == year) {
 						compesations.add(c);
 					}
+				}
+			}
+		}
+
+		return compesations;
+	}
+
+	public List<Compesation> getCompesationByRange(String id, int startMonth, int startYear, int endMonth,
+			int endYear) {
+		Employee emp = employeeRepository.findById(id).get();
+		List<Compesation> compesations = new ArrayList<Compesation>();
+
+		if (emp.getCompesationList().size() > 0) {
+			Calendar dateFrom = Calendar.getInstance();
+			Calendar dateTo = Calendar.getInstance();
+			Calendar dateCompare = Calendar.getInstance();
+			dateFrom.set(startYear, startMonth - 1, 1, 0, 0);
+			dateTo.set(endYear, endMonth - 1, 1, 0, 0);
+
+			for (Compesation c : emp.getCompesationList()) {
+				dateCompare.set(c.getYear(), c.getMonth() - 1, 1, 0, 0);
+				if (dateTo.compareTo(dateCompare) >= 0) {
+					System.out.println("Cayo");
+				}
+				if ((dateTo.compareTo(dateCompare) >= 0) && (dateCompare.compareTo(dateFrom) >= 0)) {
+					compesations.add(c);
 				}
 			}
 		}

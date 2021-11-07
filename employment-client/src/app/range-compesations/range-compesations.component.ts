@@ -2,17 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Compesation from '../Classes/Compesation';
-import Employee from '../Classes/Employee';
 
 @Component({
-  selector: 'app-monthly-compesation',
-  templateUrl: './monthly-compesation.component.html',
+  selector: 'app-range-compesations',
+  templateUrl: './range-compesations.component.html',
 })
-export class MonthlyCompesationComponent implements OnInit {
+export class RangeCompesationsComponent implements OnInit {
   compesations: Compesation[] = [];
   employeeID = this.route.snapshot.queryParams['id'];
-  compesationYear = this.route.snapshot.queryParams['year'];
-  compesationMonth = this.route.snapshot.queryParams['month'];
+  startYear = this.route.snapshot.queryParams['startYear'];
+  startMonth = this.route.snapshot.queryParams['startMonth'];
+  endYear = this.route.snapshot.queryParams['endYear'];
+  endMonth = this.route.snapshot.queryParams['endMonth'];
+
   compesationExists: boolean = false;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
@@ -24,7 +26,7 @@ export class MonthlyCompesationComponent implements OnInit {
   private fetchCompesations() {
     this.http
       .get(
-        `http://localhost:8080/api/compesation-by-date?id=${this.employeeID}&month=${this.compesationMonth}&year=${this.compesationYear}`
+        `http://localhost:8080/api/compesation-by-range?id=${this.employeeID}&startMonth=${this.startMonth}&startYear=${this.startYear}&endMonth=${this.endMonth}&endYear=${this.endYear}`
       )
       .subscribe((compesationRes) => {
         this.compesations = <Compesation[]>compesationRes;
@@ -39,6 +41,7 @@ export class MonthlyCompesationComponent implements OnInit {
         }
       });
   }
+
   setMonth(index: any) {
     const months = [
       'January',

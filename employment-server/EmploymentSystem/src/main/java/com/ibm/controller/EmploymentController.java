@@ -72,5 +72,10 @@ public class EmploymentController {
 	public List<Compesation> getCompesationByDate(@RequestParam String id, @RequestParam int month, @RequestParam int year) {
 		return employeeService.getCompesationByMonthAndYear(id, month, year);
 	}
+	
+	@GetMapping("/compesation-by-range")
+	public List<Compesation> getCompensationByRange(@RequestParam String id, @RequestParam int startMonth, @RequestParam int startYear, @RequestParam int endMonth, @RequestParam int endYear) {
+		return employeeService.getCompesationByRange(id, startMonth, startYear, endMonth, endYear);
+	}
 
 }

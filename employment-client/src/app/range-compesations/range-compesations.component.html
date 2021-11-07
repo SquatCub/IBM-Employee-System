@@ -3,8 +3,8 @@
     <div class="p-3" *ngIf="compesationExists">
       <div class="d-flex justify-content-between">
         <h3>
-          Compesations found in {{ setMonth(compesationMonth) }}
-          {{ compesationYear }}
+          Compesations found from {{ setMonth(startMonth) }} {{ startYear }} to
+          {{ setMonth(endMonth) }} {{ endYear }}
         </h3>
         <div>
           <a
