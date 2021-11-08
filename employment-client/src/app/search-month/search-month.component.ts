@@ -16,11 +16,9 @@ export class SearchMonthComponent implements OnInit {
 
   changeMonth(month: any) {
     this.month = month.target.value;
-    console.log(month.target.value);
   }
 
   changeYear(year: any) {
     this.year = year.target.value;
-    console.log(year.target.value);
   }
 }

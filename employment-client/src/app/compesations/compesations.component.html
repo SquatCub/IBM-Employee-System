@@ -34,6 +34,7 @@
       (ngSubmit)="updateCompesationData(compesationForm.value)"
     >
       <br />
+      <hr />
       <h4>Add new compesation</h4>
       <div class="row">
         <div class="col">
@@ -98,7 +99,8 @@
       </div>
       <br />
       <button type="submit" class="btn btn-warning">Add compesation</button>
-      <br /><br />
+      <hr />
+      <br />
       <div class="bg-primary text-center text-light" *ngIf="messageCompesation">
         {{ messageError }}
       </div>
@@ -111,6 +113,7 @@
       (ngSubmit)="editCompesationData(compesationEditForm.value)"
     >
       <br />
+      <hr />
       <h4>Edit compesation</h4>
       <div class="row">
         <input type="hidden" name="id" ngModel="{{ id }}" />
@@ -119,7 +122,7 @@
           <select
             class="form-control"
             name="type"
-            ngModel="{{ type }}"
+            ngModel="{{ compesationAux.type }}"
             disabled
           >
             <option value="Salary">Salary</option>
@@ -134,7 +137,7 @@
           <select
             class="form-control"
             name="month"
-            ngModel="{{ month }}"
+            ngModel="{{ compesationAux.month }}"
             disabled
           >
             <option value="1">January</option>
@@ -160,7 +163,7 @@
             min="2000"
             max="2050"
             name="year"
-            ngModel="{{ year }}"
+            ngModel="{{ compesationAux.year }}"
             disabled
           />
         </div>
@@ -171,7 +174,7 @@
             class="form-control"
             placeholder="Compesation description"
             name="description"
-            ngModel="{{ description }}"
+            ngModel="{{ compesationAux.description }}"
           />
         </div>
         <div class="col">
@@ -181,14 +184,15 @@
             class="form-control"
             placeholder="Amount $$"
             name="amount"
-            ngModel="{{ amount }}"
+            ngModel="{{ compesationAux.amount }}"
           />
         </div>
       </div>
       <br />
       <button type="submit" class="btn btn-warning">Edit compesation</button>
       <button class="btn btn-danger ms-2" (click)="closeEdit()">Close</button>
-      <br /><br />
+      <hr />
+      <br />
       <div class="bg-primary text-center text-light" *ngIf="messageCompesation">
         {{ messageError }}
       </div>

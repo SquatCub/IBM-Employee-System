@@ -10,12 +10,9 @@ import Employee from '../Classes/Employee';
 export class CompesationsComponent implements OnInit {
   @Input()
   employeeData: Employee = {};
+
+  compesationAux: Compesation = {};
   id?: string;
-  type?: string;
-  month?: number;
-  year?: number;
-  description?: string;
-  amount?: number;
   employeeID: any;
 
   messageError: string = '';
@@ -36,11 +33,13 @@ export class CompesationsComponent implements OnInit {
   edit(index: any) {
     this.displayCompesationEdit = true;
     this.id = index;
-    this.type = this.employeeData.compesationList![index].type;
-    this.month = this.employeeData.compesationList![index].month;
-    this.year = this.employeeData.compesationList![index].year;
-    this.description = this.employeeData.compesationList![index].description;
-    this.amount = this.employeeData.compesationList![index].amount;
+    this.compesationAux.type = this.employeeData.compesationList![index].type;
+    this.compesationAux.month = this.employeeData.compesationList![index].month;
+    this.compesationAux.year = this.employeeData.compesationList![index].year;
+    this.compesationAux.description =
+      this.employeeData.compesationList![index].description;
+    this.compesationAux.amount =
+      this.employeeData.compesationList![index].amount;
   }
 
   editCompesationData(data: any) {

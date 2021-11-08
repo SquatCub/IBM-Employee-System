@@ -153,9 +153,6 @@ public class EmploymentService {
 
 			for (Compesation c : emp.getCompesationList()) {
 				dateCompare.set(c.getYear(), c.getMonth() - 1, 1, 0, 0);
-				if (dateTo.compareTo(dateCompare) >= 0) {
-					System.out.println("Cayo");
-				}
 				if ((dateTo.compareTo(dateCompare) >= 0) && (dateCompare.compareTo(dateFrom) >= 0)) {
 					compesations.add(c);
 				}
